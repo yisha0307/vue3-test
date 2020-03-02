@@ -21,17 +21,13 @@
 <script>
 import {reactive, toRefs, watch} from '@vue/composition-api'
 export default {
-  setup () {
+  setup (props, context) {
     const data = reactive({
       status: 'all'
     })
-    function watchFunc (val) {
-      this && this.$emit('change', val)
-    }
-    watch(() => data.status, watchFunc)
+    watch(() => data.status, val => context.emit('change', val))
     return {
-      ...toRefs(data),
-      watchFunc
+      ...toRefs(data)
     }
   }
 }

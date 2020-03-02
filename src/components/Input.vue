@@ -8,12 +8,12 @@
 <script>
 import {reactive, toRefs} from '@vue/composition-api'
 export default {
-  setup () {
+  setup (props, context) {
     const data = reactive({
       todoContent: ''
     })
     function submit () {
-      this.$emit('submit', data.todoContent)
+      context.emit('submit', data.todoContent)
       data.todoContent = ''
     }
     return {

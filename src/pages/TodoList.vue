@@ -42,6 +42,7 @@ export default {
         content,
         id: parseInt(Math.random(0, 1) * 100000)
       })
+      console.log(data.todoList)
     }
     function onStatusChanged (status) {
       console.log(status)
